@@ -1,0 +1,127 @@
+img{
+  float: center;
+  min-width: 200px;
+  max-width: 250px;
+  height: 150px;
+  object-fit: cover;
+
+  border-radius: 7px;
+}
+
+.little-image
+{
+    float: center;
+    min-width: 100px;
+    max-width: 100px;
+      width:  100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 7px;
+
+  }
+
+imgs{
+  float: center;
+  width:  100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 7px;
+
+}
+
+  .container {
+    margin-top: 5%;
+  }
+
+  h1{
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cardic {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin: 15px;
+    border: 0;
+    padding: 15px;
+    border: 1px solid #0000002e !important;
+    border-radius: 8px;
+  }
+
+  .link{
+    cursor: pointer;
+  }
+
+  .input-for-img{
+    color: black;
+    height: 36px;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 7px 7px 17px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+
+  .input-for-img:hover{
+    background-color: #f2f2f2;
+    color: black;
+  }
+
+.input-for-imgs{
+  color: black;
+  height: 36px;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 7px 7px 17px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.input-for-imgs:hover{
+  background-color: #f2f2f2;
+  color: black;
+}
+
+.delete {
+  background: transparent !important;
+  border: 0 !important;
+  color: black;
+}
+
+.delete:hover{
+  color: red !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+}
+
+.button-align{
+  display: flex;
+  justify-content: center;
+}
+
+.image{
+  display: flex;
+}
+
+@media (max-width: 900px) {
+
+  ::ng-deep jw-modal .jw-modal .jw-modal-body {
+    width: 70% !important;
+  }
+}
+
+@media (max-width: 500px) {
+
+  ::ng-deep jw-modal .jw-modal .jw-modal-body {
+    width: 90% !important;
+  }
+}
+
+
+

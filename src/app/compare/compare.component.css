@@ -1,0 +1,28 @@
+.image {
+  width: auto;
+  height: 150px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+
+.imageDetail{
+  max-width: 800px;
+  max-height: 500px;
+
+}
+
+@media (max-width: 900px) {
+  .imageDetail{
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+
+::ng-deep jw-modal .jw-modal .jw-modal-body {
+  width: fit-content !important;
+}
+
+
+

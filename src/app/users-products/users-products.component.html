@@ -1,0 +1,212 @@
+
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col text-center linled cardic" style="max-width: 650px" *ngFor="let product of allProducts">
+      <div routerLink="/detail/{{product.id}}" style="cursor: pointer">
+        <h1>{{product.name}}</h1>
+        <img [src]="returnGoodImage(product.image.id)" class="img-fluid"
+             style="
+            min-width: 200px;
+            max-width: 250px;
+            height: 150px;
+            object-fit: cover;
+          "
+        />
+        <div class="row mt-3">
+            <div class="col" style="text-align: left">
+              <p><strong>Počet videní:</strong></p>
+            </div>
+            <div class="col" style="text-align: right">
+              {{ product.countClicksOnProduct }}
+              <svg
+                width="16px"
+                height="16px"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    fill="#000000"
+                    fill-rule="evenodd"
+                    d="M3.415 10.242c-.067-.086-.13-.167-.186-.242a16.806 16.806 0 011.803-2.025C6.429 6.648 8.187 5.5 10 5.5c1.813 0 3.57 1.148 4.968 2.475A16.816 16.816 0 0116.771 10a16.9 16.9 0 01-1.803 2.025C13.57 13.352 11.813 14.5 10 14.5c-1.813 0-3.57-1.148-4.968-2.475a16.799 16.799 0 01-1.617-1.783zm15.423-.788L18 10l.838.546-.002.003-.003.004-.01.016-.037.054a17.123 17.123 0 01-.628.854 18.805 18.805 0 01-1.812 1.998C14.848 14.898 12.606 16.5 10 16.5s-4.848-1.602-6.346-3.025a18.806 18.806 0 01-2.44-2.852 6.01 6.01 0 01-.037-.054l-.01-.016-.003-.004-.001-.002c0-.001-.001-.001.837-.547l-.838-.546.002-.003.003-.004.01-.016a6.84 6.84 0 01.17-.245 18.804 18.804 0 012.308-2.66C5.151 5.1 7.394 3.499 10 3.499s4.848 1.602 6.346 3.025a18.803 18.803 0 012.44 2.852l.037.054.01.016.003.004.001.002zM18 10l.838-.546.355.546-.355.546L18 10zM1.162 9.454L2 10l-.838.546L.807 10l.355-.546zM9 10a1 1 0 112 0 1 1 0 01-2 0zm1-3a3 3 0 100 6 3 3 0 000-6z"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+          </div>
+      </div>
+          <div class="btn-group" role="group">
+            <button class="btn btn-primary" type="button" style="margin-right: 0px;background: var(--bs-purple);" (click)="editProduct(product.id)">Upraviť</button>
+            <button class="btn btn-primary" type="button" style="background: var(--bs-danger);" (click)="deleteProduct(product.id)">Vymazať</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div *ngIf="luckyBool">
+<jw-modal id="custom-modal-1"  >
+  <div class="jw-container">
+  <div class="container">
+    <form class="example-form d-flex flex-column justify-content-center" style="width: 100%;">
+      <h1>Upraviť inzerát</h1>
+      <div class="form-group">
+        <label class="" > <div class="bold-text"> Názov:</div></label>
+        <div class="">
+          <input
+            type="text" [(ngModel)]="allProducts1.name"
+            id="name"
+            name="name"
+            class="form-control"
+            required #name="ngModel"
+            style="border-radius: 7px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);">
+
+        </div>
+<br>
+
+        <label class="" > <div class="bold-text"> Opis:</div></label>
+        <div class="">
+        <textarea type="text" [(ngModel)]="allProducts1.description"
+                  id="description"
+                  name="description"
+                  class="form-control"
+                  required #description="ngModel" style="border-radius: 7px;
+                  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);"></textarea>
+
+
+        </div>
+
+        <br>
+        <label class="" > <div class="bold-text"> Cena:</div></label>
+        <div class="">
+          <input type="text" [(ngModel)]="allProducts1.price"
+                 id="price"
+                 name="price"
+                 class="form-control"
+                 required #price="ngModel" style="border-radius: 7px;
+                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);">
+
+        </div>
+        <br>
+        <label class="" > <div class="bold-text"> Lokácia:</div></label>
+        <div class="">
+          <input type="text" [(ngModel)]="allProducts1.localization"
+                 id="localization"
+                 name="localization"
+                 class="form-control"
+                 required #localization="ngModel" style="border-radius: 7px;
+                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);">
+
+        </div>
+        <br>
+        <mat-label class="">Kategória:</mat-label>
+        <div class="row">
+
+
+          <mat-form-field appearance="fill">
+            <mat-label class="colormat" style="color: #0d0c0d">{{allProducts1.kindOfCategory.name}}</mat-label>
+            <mat-select [(ngModel)]="allProducts1.kindOfCategory" [(value)]="category"  name="category" id="category" (selectionChange)="chooseCategory()"  >
+              <mat-option *ngFor="let category of categoryArray" [value]="category" >
+                      {{category.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        <label class="" > <div class="bold-text"> </div></label>
+
+          <!-- <input class="input" type="file" (change)="onImageUpload({event : $event})"> -->
+        </div>
+          <div class="row">
+
+            <div class="col-12 col-md-6" >
+        <div class="align" style="margin-bottom: 15px;">
+          <label for="img" class="input-for-img" >Zmeniť hlavný obrázok</label>
+        <input
+          id="img"
+          class="form-control"
+          type="file"
+          style="box-shadow: 7px 7px 17px; border-width: 0; margin-bottom: 43px;display: none;"
+          required
+          (change)="onImageUpload({event : $event})"
+          accept="image/*"
+        />
+         </div>
+            </div>
+          <div class="col-12 col-md-6" >
+          <label for="imgs" class="input-for-imgs">Zmeniť ostatné obrázky</label>
+
+          <input
+            id="imgs"
+            class="form-control"
+            style="
+                box-shadow: 7px 7px 17px;
+                border-width: 0;
+                margin-bottom: 43px;
+                display: none;
+              "
+            type="file"
+            accept="image/*"
+            multiple
+            (change)="onImagesUpload({event: $event})"
+          >
+         </div>
+          </div>
+
+        <br>
+        <label><strong> Hlavný obrázok</strong> </label>
+        <div class="image">
+        <img class="little-image" [src]="this.liveDemo" />
+        </div>
+       <br>
+        <div class="">
+          <label *ngIf="selectedFilesUrls.length > 0"><strong> Ostatné obrázok</strong></label>
+          <div class="row" *ngIf="selectedFilesUrls.length > 0"
+          style="margin-top: 15px;"
+          >
+            <div class="col-12 col-md-4 col-xl-2 mb-3" *ngFor="let url of selectedFilesUrls; let i = index">
+              <div class="d-flex flex-column align-items-center">
+                <img class="little-image" [src]="sanitizer.bypassSecurityTrustUrl(url)" style="max-width: 200px; max-height: 200px;">
+                <button class="delete" type="button" (click)="removeSelectedFile(i)">Odstrániť</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="button-align">
+        <button type="submit" (click)="activated()"  class="btn btn-primary text-center d-flex justify-content-center align-items-center" style="
+          background: rgb(84, 105, 212);
+          height: 29px;
+          margin-top: 10px;
+        ">
+          Uložiť zmeny</button>
+
+
+        </div>
+         </div>
+        <div *ngIf="check" class="alert alert-success">
+          <strong>Super!</strong> Úspešne ste zmenili svoj inzeráť.
+        </div>
+
+
+
+      </form>
+  </div>
+    <br>
+  <button type="button" class="btn" (click)="closeModal('custom-modal-1')">Zavrieť</button>
+<!--  <img src="../../assets/return.png" (click)="closeModal('custom-modal-1');" height="40">-->
+  </div>
+      </jw-modal>
+     </div>
+
+
+
+
+
+

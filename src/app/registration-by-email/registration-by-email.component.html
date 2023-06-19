@@ -1,0 +1,290 @@
+
+<div _ngcontent-gyc-c50="" class="login-root mb-5">
+  <div
+    _ngcontent-gyc-c50=""
+    class="box-root flex-flex flex-direction--column"
+    style="flex-grow: 1"
+  >
+    <div
+      _ngcontent-gyc-c50=""
+      class="loginbackground box-background--white padding-top--64"
+    >
+      <div _ngcontent-gyc-c50="" class="loginbackground-gridContainer">
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: top / start / 8 / end"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root"
+            style="
+              background-color: white;
+
+              flex-grow: 1;
+            "
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 4 / 1 / auto / 5"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-divider--light-all-2 animationLeftRight tans3s"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 7 / end / auto / 16"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-background--blue800"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 6 / end / auto / 9"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-background--blue8002"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 7 / 7 / auto / 3"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-background--gray100"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 4 / 5 / auto / start"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-background--blue2 animationRightLeft"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 3 / 15 / auto / start"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-background--blue animationRightLeft"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 4 / 18 / auto / -6"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-background--gray100 animationRightLeft tans4s"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 5 / 15 / auto / 5"
+        >
+<!--          <div-->
+<!--            _ngcontent-gyc-c50=""-->
+<!--            class="box-root box-divider&#45;&#45;light-all-2 animationRightLeft tans3s"-->
+<!--            style="flex-grow: 1"-->
+<!--          ></div>-->
+        </div>
+      </div>
+    </div>
+    <div
+      _ngcontent-gyc-c50=""
+      class="box-root padding-top--24 flex-flex flex-direction--column position-absolute"
+      style="flex-grow: 1; z-index: 9; width: 100%"
+    >
+      <div
+        _ngcontent-gyc-c50=""
+        class="box-root padding-top--40 padding-bottom--24 flex-flex flex-justifyContent--center"
+      ></div>
+      <div _ngcontent-gyc-c50="" class="formbg-outer" style="padding: 0 15px">
+        <div
+          _ngcontent-gyc-c50=""
+          class="formbg"
+          style="box-shadow: 4px 4px 10px #646464; border-radius: 8px"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="formbg-inner padding-horizontal--48"
+          >
+            <span _ngcontent-gyc-c50="" class="padding-bottom--15 text-center"
+              >Vyplňte svoje údaje</span
+            >
+            <form
+              _ngcontent-gyc-c50=""
+              novalidate=""
+              id="stripe-login"
+              class="ng-untouched ng-pristine ng-valid"
+              (ngSubmit)="onSubmit()"
+              #registrationForm="ngForm"
+            >
+              <div _ngcontent-gyc-c50="" class="row">
+                <div _ngcontent-gyc-c50="" class="col">
+                  <input
+                    [(ngModel)]="user.username"
+                    #username="ngModel"
+                    required
+                    name="username"
+                    _ngcontent-gyc-c50=""
+                    type="text"
+                    placeholder="Používateľské meno"
+
+                    class="form-control mb-3"
+                  />
+                  <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                       style="font-weight: bold; color: red" >
+                    <div *ngIf="username.errors?.['required']">
+                      Povinné pole
+                      <br>
+                      <br>
+                    </div>
+                  </div>
+                  <input
+                    [(ngModel)]="user.email"
+                    #email="ngModel"
+                    required
+                    name="email"
+                    _ngcontent-gyc-c50=""
+                    type="email"
+                    placeholder="Email"
+
+                    class="form-control mb-3"
+                  />
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                       style="font-weight: bold; color: red" >
+                    <div *ngIf="email.errors?.['required']">
+                      Povinné pole
+                      <br>
+                      <br>
+                    </div>
+                  </div>
+                  <input
+                    [(ngModel)]="user.address"
+                    #address="ngModel"
+                    required
+                    name="address"
+                    _ngcontent-gyc-c50=""
+                    type="address"
+                    placeholder="Adresa"
+
+                    class="form-control mb-3"
+                  />
+                  <div *ngIf="address.invalid && (address.dirty || address.touched)"
+                       style="font-weight: bold; color: red" >
+                    <div *ngIf="address.errors?.['required']">
+                      Povinné pole
+                      <br>
+                      <br>
+                    </div>
+                  </div>
+                  <input
+                    [(ngModel)]="user.phone"
+                    #phone="ngModel"
+                    required
+                    name="phone"
+                    _ngcontent-gyc-c50=""
+                    type="email"
+                    placeholder="Telefónne číslo"
+
+                    class="form-control mb-3"
+                  />
+                  <div *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+                       style="font-weight: bold; color: red" >
+                    <div *ngIf="phone.errors?.['required']">
+                      Povinné pole
+                      <br>
+                      <br>
+                    </div>
+                  </div>
+                  <input
+                    [(ngModel)]="user.password"
+                    #password="ngModel"
+                    required
+                    name="password"
+                    _ngcontent-gyc-c50=""
+                    type="password"
+                    placeholder="Heslo"
+
+                    class="form-control mb-3"
+                  />
+                  <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                       style="font-weight: bold; color: red" >
+                    <div *ngIf="password.errors?.['required']">
+                      Povinné pole
+                      <br>
+                      <br>
+                    </div>
+                  </div>
+                  <mat-slide-toggle (change)="togglePassword()">
+                    Admin registrácia
+                  </mat-slide-toggle>
+                  <input
+                  *ngIf="showPassword"
+                  [(ngModel)]="user.confirmPassword" #adminPassword="ngModel" id="adminPassword" name="adminPassword"
+                    required
+                    _ngcontent-gyc-c50=""
+                    type="password"
+                    placeholder="Heslo pre admina"
+
+                    class="form-control mb-4"
+                  />
+                  <p _ngcontent-gyc-c50="" class="mb-1">
+                    Už máte účet? <a
+                      _ngcontent-gyc-c50=""
+                      [routerLink]="['/login']"
+                      class="text-center"
+                      >Prihlásiť sa</a
+                    >
+                  </p>
+                  <button
+                    [disabled]="!registrationForm.form.valid"
+                    _ngcontent-gyc-c50=""
+                    type="submit"
+                    class="btn btn-primary"
+                  >
+                    Registrovať sa
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div class="mt-2">
+              <div *ngIf="messageTrue" class="alert alert-success d-flex justify-content-center">
+                <a class="success-text text-dark d-flex text-center">{{ message }}</a>
+              </div>
+              <div *ngIf="checkBadRegister" class="alert alert-danger d-flex justify-content-center">
+                <a class="warn-text text-dark d-flex text-center">{{ message }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

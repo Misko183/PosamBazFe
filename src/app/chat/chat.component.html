@@ -1,0 +1,285 @@
+<!-- <div class="container-main">
+  <div class="container-inside">
+
+  <div class="section-one">
+  <form #chatForm2="ngForm" (ngSubmit)="addChatContact(chatForm2.value)">
+    <div class="">
+      <input type="text" class="form-control" name="user2" ngModel placeholder="Napíš adresáta">
+    </div>
+    <button type="submit" class="btn btn-primary">Poslať žiadosť o chat</button>
+    <div *ngIf="success" class="btn-ok">
+      <strong>Žiadosť bola poslaná</strong>
+    </div>
+  </form>
+
+
+    <br>
+    <br>
+    <a>Žiadosti o kontakt</a>
+      <div *ngFor="let chatContact of chatContactList">
+        <div>{{ chatContact.firstUser.username }}</div>
+        <button (click)="acceptChatContact(chatContact.id)">Povoliť</button>
+      </div>
+    </div>
+
+    <div class="section-two">
+      <br>
+      <br>
+      <a>Kontakty</a>
+      <div *ngFor="let chatContact of chatContactListAccepted">
+        <div>{{ chatContact.firstUser.username }}  {{ chatContact.secondUser.username }}</div>--->
+<!-- <button (click)="startChat(chatContact.firstUser.username, chatContact.secondUser.username)">Napísať</button>
+      </div>
+    </div>
+
+
+
+      <div class="section-three">
+      <div class="chat" style="overflow-y: auto; height: calc(100vh - 30rem)" >
+        <div class="" *ngFor="let chat of chatList"> 
+       <div class="" [ngClass]="{ 'message-right': chat.userSender.id}">-->
+<!-- <div class="me" *ngIf="chat.userSender.username === currentUser">
+            {{ chat.message }}
+          </div>
+          <div class="he" *ngIf="chat.userSender.username !== currentUser">
+            {{ chat.message }}
+          </div>
+        </div>
+      </div>
+      <form #chatForm="ngForm" (ngSubmit)="sendChat(chatInput)">
+        <div class="form-group">
+          <input type="text" class="form-control" [(ngModel)]="chatInput" name="message"placeholder="Napíš správu...">
+        </div>
+        <button type="submit" class="btn btn-primary">Odoslať</button>
+      </form>
+
+
+  </div>
+  </div>
+      </div> -->
+
+<div class="container" style="margin-top: 50px">
+  <div class="row">
+    <div class="col-md-8">
+      <form #chatForm2="ngForm" (ngSubmit)="addChatContact(chatForm2.value)">
+        <div class="row mb-3">
+          <div class="col-12 col-lg-8 col-xl-9">
+            <input
+              name="user2"
+              ngModel
+              placeholder="Napíš adresáta"
+              style="
+                margin-right: 16px;
+                border-radius: 33px;
+                width: 100%;
+                height: 40px;
+                padding-left: 18px;
+                color: var(--bs-secondary);
+              "
+            />
+          </div>
+          <div class="col-12 col-lg-4 col-xl-3 text-center btnik">
+            <button
+              class="btn btn-primary"
+              type="submit"
+              style="border-radius: 48px; background: rgb(84, 105, 212)"
+            >
+              Poslať žiadosť o chat
+            </button>
+          </div>
+
+          <div class="col-12 mt-2">
+            <div *ngIf="success" class="btn-ok">
+              <strong>Žiadosť bola poslaná</strong>
+            </div>
+          </div>
+        </div>
+      </form>
+      <hr />
+      <div class="row">
+        <div class="col-12">
+          <h4><strong>Žiadosti o kontakt</strong></h4>
+          <div class="row d-flex justify-content-center">
+            <div
+              class="col-12 col-md-6 col-xl-3 d-flex flex-column justify-content-center align-items-center mb-2 p-1 mx-2"
+              *ngFor="let chatContact of chatContactList"
+              style="
+                max-width: 150px;
+                border-radius: 7px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+              "
+            >
+              <div class="">{{ chatContact.firstUser.username }}</div>
+              <button
+                class="btn btn-primary text-center d-xl-flex justify-content-xl-center align-items-xl-center"
+                style="
+                  background: rgb(84, 105, 212);
+                  height: 29px;
+                  margin-top: 10px;
+                "
+                (click)="acceptChatContact(chatContact.id)"
+              >
+                Povoliť
+              </button>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="col-12">
+          <div class="row bootstrap snippets">
+            <div class="col-12">
+              <h4><strong>Kontakty</strong></h4>
+              <div class="row d-flex justify-content-center">
+                <div
+                  *ngFor="let chatContact of chatContactListAccepted"
+                  class="col-12 col-md-6 col-xl-3 d-flex flex-column justify-content-center align-items-center mb-2 p-1 mx-2"
+                  style="
+                    max-width: 150px;
+                    border-radius: 7px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+                  "
+                >
+                  <p>
+                    {{ chatContact.firstUser.username }} ---&gt;
+                    {{ chatContact.secondUser.username }}
+                  </p>
+                  <button
+                    (click)="
+                      startChat(
+                        chatContact.firstUser.username,
+                        chatContact.secondUser.username
+                      )
+                    "
+                    class="btn btn-primary text-center d-xl-flex justify-content-xl-center align-items-xl-center"
+                    type="button"
+                    style="
+                      background: rgb(84, 105, 212);
+                      height: 29px;
+                      margin-top: -5px;
+                    "
+                  >
+                    Napísať
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-xl-4 d-flex flex-column align-items-xl-center">
+      <!-- DIRECT CHAT PRIMARY -->
+      <div class="box box-primary direct-chat direct-chat-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Chatové okno</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <!-- Conversations are loaded here -->
+          <div class="direct-chat-messages">
+            <div *ngFor="let chat of chatList">
+              <!-- Message. Default to the left -->
+              <div
+                class="direct-chat-msg"
+                *ngIf="chat.userSender.username !== currentUser"
+              >
+                <div class="direct-chat-info clearfix">
+                  <span class="direct-chat-name float-start">{{
+                    chat.userSender.username
+                  }}</span>
+                </div>
+                <!-- /.direct-chat-info -->
+                <img
+                  class="direct-chat-img"
+                  src="https://bootdey.com/img/Content/avatar/avatar4.png"
+                  alt="Message User Image"
+                /><!-- /.direct-chat-img -->
+                <div class="direct-chat-text">
+                  {{ chat.message }}
+                </div>
+                <!-- /.direct-chat-text -->
+              </div>
+
+              <div
+                class="direct-chat-msg right"
+                *ngIf="chat.userSender.username === currentUser"
+              >
+                <div class="direct-chat-info clearfix">
+                  <span class="direct-chat-name float-end">{{
+                    chat.userSender.username
+                  }}</span>
+                </div>
+
+                <img
+                  class="direct-chat-img"
+                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                  alt="Message User Image"
+                />
+                <div class="direct-chat-text">
+                  {{ chat.message }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-footer">
+          <form #chatForm="ngForm" (ngSubmit)="sendChat(chatInput)">
+            <div class="input-group">
+              <input
+                type="text"
+                [(ngModel)]="chatInput"
+                name="message"
+                placeholder="Napíš správu..."
+                class="form-control"
+              />
+              <span class="input-group-btn">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-flat"
+                  style="
+                    background: rgb(84, 105, 212);
+                    margin-left: 5px;
+                    border-radius: 8px;
+                  "
+                >
+                  Odoslať
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
+        <!-- /.box-footer-->
+      </div>
+      <!--/.direct-chat -->
+    </div>
+  </div>
+</div>
+
+<!-- 
+<div class="section-three">
+  <div class="chat" style="overflow-y: auto; height: calc(100vh - 30rem)">
+    <div class="" *ngFor="let chat of chatList">
+      <div class="" [ngClass]="{ 'message-right': chat.userSender.id }">
+        <div class="me" *ngIf="chat.userSender.username === currentUser">
+          {{ chat.message }}
+        </div>
+        <div class="he" *ngIf="chat.userSender.username !== currentUser">
+          {{ chat.message }}
+        </div>
+      </div>
+    </div>
+    <form #chatForm="ngForm" (ngSubmit)="sendChat(chatInput)">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="chatInput"
+          name="message"
+          placeholder="Napíš správu..."
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Odoslať</button>
+    </form>
+  </div>
+</div> -->

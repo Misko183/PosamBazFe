@@ -1,0 +1,70 @@
+<div class="container">
+  <div
+    class="row g-0 text-center d-flex d-lg-flex d-xl-flex justify-content-center justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center"
+  >
+    <div
+      class="col-11 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 d-flex justify-content-center"
+    >
+      <form
+        #addCategoryForm="ngForm"
+        class="text-center"
+        style="padding: 25px;width: 80%;">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <label
+          class="form-label d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-start justify-content-start"
+          style="font-weight: bold; font-size: 18px"
+          >Názov kategórie:</label
+        >
+        <input
+          [(ngModel)]="category.name"
+          name="name"
+          class="form-control"
+          type="text"
+          style="
+            box-shadow: 7px 6px 17px;
+            border-radius: 7;
+            margin-bottom: 22px;
+          "
+          required
+        />
+        </div>
+        <div class="col-12 col-md-6">
+          <label
+          class="form-label d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-start justify-content-start"
+          style="font-size: 18px; font-weight: bold"
+          >Ikona:</label>
+
+          <label
+          for="img"
+          class="input-for-img"
+          >Vložiť ikonu</label>
+        <input
+          id="img"
+          class="form-control"
+          type="file"
+          style="box-shadow: 7px 7px 17px; border-width: 0; margin-bottom: 43px;display: none;"
+          required
+          (change)="onImageUpload({event : $event})"
+          accept="image/*"
+        />
+        </div>        
+      </div>
+      <div class="col-12 mb-3" *ngIf="liveDemo">
+        <img [src]="this.liveDemo" class="img-fluid"/>
+      </div>
+        
+       
+        
+        <button
+          (click)="createCategory()"
+          class="btn btn-primary mt-3"
+          type="button"
+          style="background: rgb(84, 105, 212); color: rgb(255, 255, 255);"
+        >
+          Vytvoriť kategóriu
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

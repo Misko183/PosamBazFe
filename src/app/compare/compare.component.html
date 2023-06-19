@@ -1,0 +1,93 @@
+
+
+<div class="container mt-5">
+  <div *ngIf="!dbImage" >Zatiaľ žiadné inzeráty na porovnanie</div>
+<div class="table-responsive">
+  <table class="table table-striped text-successtable-border border-light" *ngIf="dbImage && dbImage2">
+    <thead class="border-light">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"><strong>{{firstProduct.name}}</strong></th>
+        <th scope="col"><strong>{{secondProduct.name}}</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Cena</th>
+        <td>{{firstProduct.price}}</td>
+        <td>{{secondProduct.price}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Lokácia</th>
+        <td>{{firstProduct.localization}}</td>
+        <td>{{secondProduct.localization}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Popis</th>
+        <td>{{firstProduct.description}}</td>
+        <td>{{secondProduct.description}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Fotografia</th>
+        <td><img class="image" [src]="dbImage" (click)="openModal('custom-modal-1', dbImage)"></td>
+        <td><img class="image" [src]="dbImage2" (click)="openModal('custom-modal-1', dbImage2)"></td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td>
+          <div class="" *ngFor="let image of dbImages;">
+          <img class="image" [src]="image" (click)="openModal2('custom-modal-2', image)">
+        </div>
+        </td>
+        <td>
+          <div class="" *ngFor="let image of dbImages2;">
+            <img class="image" [src]="image" (click)="openModal2('custom-modal-2', image)">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Používateľ</th>
+        <td>{{firstProduct.userEntity.username}}</td>
+        <td>{{secondProduct.userEntity.username}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Email</th>
+        <td>{{firstProduct.userEntity.email}}</td>
+        <td>{{secondProduct.userEntity.email}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Telefónne číslo</th>
+        <td>{{firstProduct.userEntity.phone}}</td>
+        <td>{{secondProduct.userEntity.phone}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Adresa</th>
+        <td>{{firstProduct.userEntity.address}}</td>
+        <td>{{secondProduct.userEntity.address}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+<jw-modal id="custom-modal-1">
+  <div class="modal-body">
+    <img class="imageDetail" [src]="currentImage">
+  </div>
+  <br>
+  <div class="modal-footer">
+    <button type="button" class="btn" (click)="closeModal('custom-modal-1')">Zavrieť</button>
+  </div>
+</jw-modal>
+
+<jw-modal id="custom-modal-2">
+  <div class="modal-body d-flex align-items-center">
+    <img class="imageDetail" [src]="currentImages">
+  </div>
+  <br>
+  <div class="modal-footer">
+    <button type="button" class="btn" (click)="closeModal('custom-modal-2')">Zavrieť</button>
+  </div>
+</jw-modal>
+

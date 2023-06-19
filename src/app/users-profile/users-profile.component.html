@@ -1,0 +1,270 @@
+<!-- <div class="containerAdmin" *ngIf="isAdmin()">
+  <div class="containerAdmin-inside">
+    <div class="col-md-12">
+      <br />
+      <h1>Informácie o užívateľoch</h1>
+      <br />
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Meno uživateľa</th> -->
+<!--          <th>Heslo</th>-->
+<!-- <th>Email</th>
+            <th>Telefonné číslo</th>
+            <th>Adresa</th>
+            <th>Vymazať uživateľa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>
+              <div class="align">{{ user.username }}</div>
+            </td> -->
+<!--          <td>{{user.password}}</td>-->
+<!-- <td>
+              <div class="align">{{ user.email }}</div>
+            </td>
+            <td>
+              <div class="align">{{ user.phone }}</div>
+            </td>
+            <td>
+              <div class="align">{{ user.address }}</div>
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteUser(user)">
+                Vymazať uživateľa
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
+
+<!-- Edit Profile Modal -->
+<!-- <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true"> -->
+  <!-- <jw-modal id="custom-modal-11">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" [formGroup]="userForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" [(ngModel)]="user.username" formControlName="name">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" [(ngModel)]="user.email" formControlName="email">
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" [(ngModel)]="user.phone" formControlName="phone">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password" [(ngModel)]="user.password" formControlName="password">
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <textarea class="form-control" id="address" rows="3" placeholder="Enter your address" [(ngModel)]="user.address" formControlName="address"></textarea>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="editUser()">Save Changes</button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal('custom-modal-11')">Cancel</button>
+  </div>
+</div>
+</div>
+</jw-modal> -->
+  <!-- </div> -->
+
+<!-- End of user profile -->
+
+<!-- <div class="maincontainer" *ngIf="!isAdmin()">
+  <div class="container">
+    <div class="container-inside">
+      <h1><a>Vaše údaje:</a></h1>
+      <h1><a>Používateľské meno:</a> {{ user.username }}</h1> -->
+      <!--  <h2>Heslo: {{user.password}}</h2>-->
+      <!-- <h2><a>Email:</a> {{ user.email }}</h2>
+      <h2><a>Telefónne číslo:</a> {{ user.phone }}</h2>
+      <h2><a>Adresa:</a> {{ user.address }}</h2>
+      <button class="btn" (click)="openModal('custom-modal-1')">
+        Upraviť účet
+      </button>
+    </div>
+  </div>
+</div> -->
+
+<!-- For admin -->
+<div class="container mt-5" *ngIf="isAdmin()">
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Meno uživateľa</th>
+          <th scope="col">Email</th>
+          <th scope="col">Telefónne číslo</th>
+          <th scope="col">Adresa</th>
+          <th scope="col">Vymazať uživateľa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.address }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="deleteUser(user)">
+              Vymazať uživateľa
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- For user -->
+
+<div class="container mt-4" *ngIf="!isAdmin()">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Používateľské meno</label>
+              <input type="text" class="form-control" id="name" placeholder="{{ user.username }}" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label> 
+              <input type="email" class="form-control" id="email" placeholder="{{ user.email }}" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Telefón</label>
+              <input type="tel" class="form-control" id="phone" placeholder="{{ user.phone }}" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">Adresa</label>
+              <input type="text" class="form-control" id="address" rows="3" placeholder="{{ user.address }}" disabled>
+            </div>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editProfileModal" (click)="openModal('custom-modal-1')" >Upraviť profil</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<jw-modal id="custom-modal-1">
+  <div class="jw-container">
+    <div class="row">
+      <div class="col-10">
+        <h2>Upraviť profil</h2>
+      </div>
+      <div class="col-2 d-flex justify-content-end">
+        <!-- <img
+        src="../../assets/X.png"
+        
+        height="40"
+        class="linked"
+      /> -->
+      <svg class="linked svg" (click)="closeModal('custom-modal-1')" fill="#000000" width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>cancel2</title> <path d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z"></path> </g></svg>
+      </div>
+    </div>
+    
+    <br />
+    <form class="form-horizontal" [formGroup]="userForm">
+      <div class="form-group">
+        <label class="" for="name">Uživateľské meno:</label>
+        <div class="">
+          <input
+            class="form-control"
+            [(ngModel)]="user.username"
+            formControlName="name"
+            id="name"
+          />
+        </div>
+      </div>
+      <br />
+      <div class="form-group">
+        <label class="" for="email">Email:</label>
+        <div class="">
+          <input
+            class="form-control"
+            type="email"
+            [(ngModel)]="user.email"
+            formControlName="email"
+            id="email"
+            required
+          />
+        </div>
+      </div>
+      <br />
+      <div class="form-group">
+        <label class="" for="phone">Telefonné čislo:</label>
+        <div class="">
+          <input
+            class="form-control"
+            type="tel"
+            [(ngModel)]="user.phone"
+            formControlName="phone"
+            id="phone"
+            required
+          />
+        </div>
+      </div>
+      <br />
+      <div class="">
+        <label class="control-label col-sm-2" for="address">Adresa:</label>
+        <div class="">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="user.address"
+            formControlName="address"
+            id="address"
+            required
+          />
+        </div>
+      </div>
+      <br />
+      <div class="form-group">
+        <label class="" for="password">Nové heslo:</label>
+        <div class="">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Ak chcete nové heslo píšte sem"
+            [(ngModel)]="user.password"
+            formControlName="password"
+            id="password"
+            required
+          />
+        </div>
+      </div>
+      <br />
+      <div class="form-group">
+        <div class="">
+          <button type="submit" (click)="editUser()" class="btn btn-danger">
+            Uložiť zmeny
+          </button>
+        </div>
+      </div>
+      <br />
+      <div *ngIf="check">
+        <strong>Super!</strong> Úspešne ste zmenili svoje údaje. Priláste sa
+        prosím znova o 5 sekund.
+      </div>
+      <br />
+    </form>
+  </div>
+</jw-modal>

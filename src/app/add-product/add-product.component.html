@@ -1,0 +1,200 @@
+
+
+<div class="container">
+  <div
+    class="row g-0 text-center d-flex d-lg-flex d-xl-flex justify-content-center justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center"
+  >
+    <div
+      class="col-11 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center justify-content-xxl-center"
+    >
+      <form
+        #addProductForm="ngForm"
+        class="text-center"
+        style="
+          width: 60%;
+          padding: 25px;
+          box-shadow: 2px 7px 18px;
+          border-radius: 7px;
+        "
+      >
+        <label
+          class="form-label d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-start justify-content-start"
+          style="font-weight: bold; font-size: 18px"
+          >Názov:</label
+        >
+        <input
+          [(ngModel)]="allProducts.name"
+          name="name"
+          class="form-control"
+          type="text"
+          style="
+            box-shadow: 7px 6px 17px;
+            border-radius: 7;
+            margin-bottom: 22px;
+          "
+          #name="ngModel"
+          required
+        />
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+             style="font-weight: bold; color: red" >
+          <div *ngIf="name.errors?.['required']">
+            Povinné pole
+          </div>
+        </div>
+
+        <label
+          class="form-label d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-start justify-content-start"
+          style="font-weight: bold; font-size: 18px"
+          >Opis:</label
+        >
+        <textarea
+          [(ngModel)]="allProducts.description"
+          name="description"
+          class="form-control"
+          type="text"
+          style="
+            box-shadow: 7px 6px 17px;
+            border-radius: 7;
+            margin-bottom: 22px;
+          "
+          #description="ngModel"
+          required
+        >
+        </textarea>
+        <div *ngIf="description.invalid && (description.dirty || description.touched)"
+             style="font-weight: bold; color: red" >
+          <div *ngIf="description.errors?.['required']">
+            Povinné pole
+          </div>
+        </div>
+        <label
+          class="form-label d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-start justify-content-start"
+          style="font-weight: bold; font-size: 18px"
+          >Cena:</label
+        >
+        <input
+          [(ngModel)]="allProducts.price"
+          name="price"
+          class="form-control"
+          type="number"
+          style="
+            box-shadow: 7px 6px 17px;
+            border-radius: 7;
+            margin-bottom: 22px;
+          "
+          #price="ngModel"
+          required
+        />
+        <div *ngIf="price.invalid && (price.dirty || price.touched)"
+             style="font-weight: bold; color: red" >
+          <div *ngIf="price.errors?.['required']">
+            Povinné pole
+          </div>
+        </div>
+        <label
+          class="form-label d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-start justify-content-start"
+          style="font-weight: bold; font-size: 18px"
+          >Lokácia:</label
+        >
+        <input
+          [(ngModel)]="allProducts.localization"
+          name="location"
+          class="form-control"
+          type="text"
+          style="
+            box-shadow: 7px 6px 17px;
+            border-radius: 7;
+            margin-bottom: 22px;
+          "
+          #location="ngModel"
+          required
+        />
+        <div *ngIf="location.invalid && (location.dirty || location.touched)"
+             style="font-weight: bold; color: red" >
+          <div *ngIf="location.errors?.['required']">
+            Povinné pole
+            <br>
+            <br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-md-6">
+          <label
+            class="form-label d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-start justify-content-start"
+            style="font-weight: bold; font-size: 18px"
+          >Kategória:</label>
+          <div class="">
+
+            <mat-select
+              class="form-control"
+              type="file"
+              style="
+                box-shadow: 7px 7px 17px;
+                border-width: 0;
+                margin-bottom: 22px;
+              "
+              required
+              [(value)]="selectedCategory"
+              [(ngModel)]="allProducts.kindOfCategory"
+              name="category"
+              (selectionChange)="chooseCategory()"
+
+            >
+              <mat-option *ngFor="let category of categoryArray" [value]="category">
+                {{ category.name }}
+              </mat-option>
+            </mat-select>
+          </div>
+        </div>
+          <div class="col-12 col-md-6">
+          <label
+            class="form-label d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-start justify-content-start"
+            style="font-weight: bold; font-size: 18px"
+          >Obrázky:</label>
+          <div class="">
+            <label for="img" class="input-for-img">Vložiť obrázky</label>
+            <input
+            id="img"
+              class="form-control"
+              type="file"
+              style="
+                box-shadow: 7px 7px 17px;
+                border-width: 0;
+                margin-bottom: 43px;
+                display: none;
+              "
+              required
+              (change)="onImagesUpload({event: $event})"
+              accept="image/*"
+              title = "Žiadne fotografie nie sú vložené"
+               multiple
+            />
+            <!-- <input type="file" name="uploadfile" id="img" style="display:none;"/>
+            <label for="img">Click me to upload image</label> -->
+          </div>
+          </div>
+        </div>
+
+            <div class="row" *ngIf="selectedFilesUrls.length > 0">
+              <div class="col-12 col-md-4 col-xl-2 mb-3" *ngFor="let url of selectedFilesUrls; let i = index">
+                <div class="d-flex flex-column align-items-center">
+                  <img class="mb-2" [src]="sanitizer.bypassSecurityTrustUrl(url)" style="max-width: 200px; max-height: 200px;">
+                  <button class="delete" type="button" (click)="removeSelectedFile(i)">Odstrániť</button>
+                </div>
+              </div>
+            </div>
+
+        <button
+          [disabled]="!addProductForm.form.valid"
+          (click)="uploadFiles()"
+          class="btn btn-primary"
+          type="submit"
+          style="background: #4b70e2; color: white; font-weight: bold"
+        >
+          Vytvoriť inzerát
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
