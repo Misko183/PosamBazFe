@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    let url = 'http://localhost:8080/api/login';
+    let url = 'https://msbazar-3e8234d30168.herokuapp.com/api/login';
     this.http.post<any>(url, {
       username: this.model.username,
       password: this.model.password

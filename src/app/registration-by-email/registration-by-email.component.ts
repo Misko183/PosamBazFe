@@ -41,7 +41,7 @@ export class RegistrationByEmailComponent implements OnInit {
     this.messageTrue = true;
     this.checkBadRegister = false;
     this.message = "Potvrď registráciu cez Email";
-    this.http.post('http://localhost:8080/register', this.user).subscribe(
+    this.http.post('https://msbazar-3e8234d30168.herokuapp.com/register', this.user).subscribe(
       data => {
         this.status = data;
        if(this.status.status === "error"){
