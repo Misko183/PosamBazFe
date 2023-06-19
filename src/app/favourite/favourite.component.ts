@@ -47,7 +47,7 @@ export class FavouriteComponent implements OnInit {
   dbImageId : Array<any> = [];
 
   hopeFinal() {
-    this.httpClient.get('http://localhost:8080/getfavouriteimages')
+    this.httpClient.get('https://msbazar-3e8234d30168.herokuapp.com/getfavouriteimages')
       .subscribe(
         res => {
           this.postResponseF = res;

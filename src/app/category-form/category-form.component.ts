@@ -47,7 +47,7 @@ export class CategoryFormComponent implements OnInit {
     imageFormData.append('image', this.uploadedImage);
 
 
-    this.httpClient.post('http://localhost:8080/upload/categoryimage/', imageFormData, { observe: 'response' })
+    this.httpClient.post('https://msbazar-3e8234d30168.herokuapp.com/upload/categoryimage/', imageFormData, { observe: 'response' })
       .subscribe(() => {
          this.mainService.postKindOfCategory(this.category).subscribe(() => this.router.navigate(['/home']));
 

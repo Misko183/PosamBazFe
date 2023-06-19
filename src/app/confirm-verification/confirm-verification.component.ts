@@ -13,7 +13,7 @@ export class ConfirmVerificationComponent implements OnInit {
     http: HttpClient,
     router: Router,
   ) {
-    http.get('http://localhost:8080/confirm-account?token=' + router.url.split('=')[1]).subscribe(
+    http.get('https://msbazar-3e8234d30168.herokuapp.com/confirm-account?token=' + router.url.split('=')[1]).subscribe(
       () => {
 
       }

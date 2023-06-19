@@ -69,7 +69,7 @@ setbool(){
     this.luckyBool = true;
 
     // this.viewImage();
-    this.httpClient.get('http://localhost:8080/get/image/info/' + this.allProducts1.image.id)
+    this.httpClient.get('https://msbazar-3e8234d30168.herokuapp.com/get/image/info/' + this.allProducts1.image.id)
       .subscribe(
         res => {
           this.postResponse = res;

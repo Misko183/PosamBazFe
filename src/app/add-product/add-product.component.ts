@@ -80,10 +80,10 @@ export class AddProductComponent  {
     for (let i = 1; i < this.selectedFiles.length; i++) {
       formData.append('image', this.selectedFiles[i]);
     }
-       this.httpClient.post('http://localhost:8080/upload/image/', mainData, { observe: 'response' })
+       this.httpClient.post('https://msbazar-3e8234d30168.herokuapp.com/upload/image/', mainData, { observe: 'response' })
       .subscribe(() => {
         if (this.selectedFiles.length > 1){
-       this.httpClient.post('http://localhost:8080/upload/anotherImage', formData, ).subscribe(response => {
+       this.httpClient.post('https://msbazar-3e8234d30168.herokuapp.com/upload/anotherImage', formData, ).subscribe(response => {
         console.log(response);
         this.mainService.addProduct(this.allProducts).subscribe(() => this.gotoUsersProducts());
       }
@@ -114,7 +114,7 @@ export class AddProductComponent  {
     imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
 
 
-    this.httpClient.post('http://localhost:8080/upload/image/', imageFormData, { observe: 'response' })
+    this.httpClient.post('https://msbazar-3e8234d30168.herokuapp.com/upload/image/', imageFormData, { observe: 'response' })
       .subscribe((response) => {
           if (response.status === 200) {
             this.postResponse = response;

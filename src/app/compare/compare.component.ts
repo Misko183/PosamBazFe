@@ -72,7 +72,7 @@ export class CompareComponent implements OnInit {
       this.compareProducts = data;
       this.firstProduct = this.compareProducts.product1;
 
-      this.httpClient.get('http://localhost:8080/get/image/info/' + this.firstProduct.image.id)
+      this.httpClient.get('https://msbazar-3e8234d30168.herokuapp.com/get/image/info/' + this.firstProduct.image.id)
         .subscribe(
           res => {
             this.postResponse = res;
@@ -89,7 +89,7 @@ export class CompareComponent implements OnInit {
     this.mainService.getCompareProduct().subscribe(data => {
       this.compareProducts = data;
       this.firstProduct = this.compareProducts.product1;
-      this.httpClient.get('http://localhost:8080/get/images/info/' + this.firstProduct.image.id)
+      this.httpClient.get('https://msbazar-3e8234d30168.herokuapp.com/get/images/info/' + this.firstProduct.image.id)
         .subscribe(
           res => {
             this.postResponse2 = res;
@@ -112,7 +112,7 @@ export class CompareComponent implements OnInit {
       this.compareProducts = data;
       this.secondProduct = this.compareProducts.product2;
 
-      this.httpClient.get('http://localhost:8080/get/image/info/' + this.secondProduct.image.id)
+      this.httpClient.get('https://msbazar-3e8234d30168.herokuapp.com/get/image/info/' + this.secondProduct.image.id)
         .subscribe(
           res => {
             this.postResponse3 = res;
@@ -127,7 +127,7 @@ export class CompareComponent implements OnInit {
     this.mainService.getCompareProduct().subscribe(data => {
       this.compareProducts = data;
       this.secondProduct = this.compareProducts.product2;
-      this.httpClient.get('http://localhost:8080/get/images/info/' + this.secondProduct.image.id)
+      this.httpClient.get('https://msbazar-3e8234d30168.herokuapp.com/get/images/info/' + this.secondProduct.image.id)
         .subscribe(
           res => {
             this.postResponse4 = res;

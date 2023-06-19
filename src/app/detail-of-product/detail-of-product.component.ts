@@ -50,7 +50,7 @@ export class DetailOfProductComponent  implements OnInit {
     this.mainService.getAllProducts().subscribe(data => {
       this.oneProcust  = data.find(product => product.id === this.detailID);
 
-    this.httpClient.get('http://localhost:8080/get/image/info/' + this.oneProcust.image.id)
+    this.httpClient.get('https://msbazar-3e8234d30168.herokuapp.com/get/image/info/' + this.oneProcust.image.id)
       .subscribe(
         res => {
           this.postResponse = res;
@@ -67,7 +67,7 @@ export class DetailOfProductComponent  implements OnInit {
     this.mainService.getAllProducts().subscribe(data => {
       this.oneProcust  = data.find(product => product.id === this.detailID);
 
-      this.httpClient.get('http://localhost:8080/get/images/info/' + this.oneProcust.image.id)
+      this.httpClient.get('https://msbazar-3e8234d30168.herokuapp.com/get/images/info/' + this.oneProcust.image.id)
         .subscribe(
           res => {
             this.postResponse2 = res;
