@@ -44,7 +44,7 @@ export class ChatComponent implements OnInit {
     );
     setInterval(() => {
       this.startChat(this.user1, this.user2);
-    }, 10000);
+    }, 1000);
   }
 
 
